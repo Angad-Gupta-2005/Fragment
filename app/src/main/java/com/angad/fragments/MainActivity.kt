@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.angad.fragments.databinding.ActivityMainBinding
 import com.angad.fragments.fragmentP.BlankFragment1
+import com.angad.fragments.fragmentP.BlankFragment2
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +32,36 @@ class MainActivity : AppCompatActivity() {
         val manager = supportFragmentManager        // support of fragmentManager
         val transition = manager.beginTransaction()     // start transition
         transition.replace(R.id.frame, BlankFragment1())    // replace frame with fragment
+//        Maintaining backstack
+        //transition.addToBackStack(null)
         transition.commit()     // final done
+
+//        On click button1
+        onClickButtonOne()
+
+//        On click button2
+        onClickButtonTwo()
+    }
+
+    private fun onClickButtonTwo() {
+        binding.btn2.setOnClickListener {
+            val manager = supportFragmentManager        // support of fragmentManager
+            val transition = manager.beginTransaction()     // start transition
+            transition.replace(R.id.frame, BlankFragment2())    // replace frame with fragment
+//            transition.addToBackStack(null)
+            transition.commit()     // final done
+
+        }
+    }
+
+    private fun onClickButtonOne() {
+        binding.btn1.setOnClickListener {
+            val manager = supportFragmentManager        // support of fragmentManager
+            val transition = manager.beginTransaction()     // start transition
+            transition.replace(R.id.frame, BlankFragment1())    // replace frame with fragment
+//            transition.addToBackStack(null)
+            transition.commit()     // final done
+
+        }
     }
 }
